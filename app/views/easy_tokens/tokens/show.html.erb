@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @token.value %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @token.description %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @token.owner_id %>
+</p>
+
+<p>
+  <strong>Deactivated at:</strong>
+  <%= @token.deactivated_at %>
+</p>
+
+<%= link_to 'Edit', edit_token_path(@token) %> |
+<%= link_to 'Back', tokens_path %>
