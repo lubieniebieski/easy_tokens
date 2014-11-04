@@ -3,7 +3,7 @@ require 'test_helper'
 module EasyTokens
   class TokensControllerTest < ActionController::TestCase
     setup do
-      @token = tokens(:one)
+      @token = easy_tokens_tokens(:one)
     end
 
     test "should get index" do
