@@ -3,11 +3,7 @@
 one:
   value: MyString
   description: MyString
-  owner_id: MyString
-  deactivated_at: 2014-11-03 20:56:17
 
 two:
   value: MyString
   description: MyString
-  owner_id: MyString
-  deactivated_at: 2014-11-03 20:56:17
