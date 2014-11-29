@@ -23,7 +23,7 @@ module EasyTokens
 
     def create
       @token = Token.new(token_params)
-      @token.owner= send(EasyTokens.token_owner_method)
+      @token.owner_id = owner_resource.id
 
       if @token.save
         redirect_to @token, notice: 'Token was successfully created.'
