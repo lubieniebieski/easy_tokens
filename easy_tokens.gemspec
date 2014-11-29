@@ -7,11 +7,11 @@ require "easy_tokens/version"
 Gem::Specification.new do |s|
   s.name        = "easy_tokens"
   s.version     = EasyTokens::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of EasyTokens."
-  s.description = "TODO: Description of EasyTokens."
+  s.authors     = ["Adam Nowak"]
+  s.email       = ["lubieniebieski@gmail.com"]
+  s.homepage    = ""
+  s.summary     = "App global tokens management and verification"
+  s.description = "EasyTokens provide an interface for tokens management and also their verification. You can issue a token for external app/users and verify this token presence in a given context."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

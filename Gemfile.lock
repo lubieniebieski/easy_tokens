@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    easy_tokens (0.0.1)
+    easy_tokens (0.3.0)
       rails (>= 4.0.0)
 
 GEM
