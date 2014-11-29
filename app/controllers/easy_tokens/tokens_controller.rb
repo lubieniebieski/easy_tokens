@@ -1,4 +1,4 @@
-require_dependency "easy_tokens/application_controller"
+require_dependency 'easy_tokens/application_controller'
 
 module EasyTokens
   class TokensController < ::ApplicationController
@@ -7,25 +7,20 @@ module EasyTokens
 
     layout false
 
-    # GET /tokens
     def index
       @tokens = Token.all
     end
 
-    # GET /tokens/1
     def show
     end
 
-    # GET /tokens/new
     def new
       @token = Token.new
     end
 
-    # GET /tokens/1/edit
     def edit
     end
 
-    # POST /tokens
     def create
       @token = Token.new(token_params)
       @token.owner= send(EasyTokens.token_owner_method)
@@ -37,7 +32,6 @@ module EasyTokens
       end
     end
 
-    # PATCH/PUT /tokens/1
     def update
       if @token.update(token_params)
         redirect_to @token, notice: 'Token was successfully updated.'
@@ -46,30 +40,28 @@ module EasyTokens
       end
     end
 
-    # DELETE /tokens/1
     def destroy
       @token.destroy
       redirect_to tokens_url, notice: 'Token was successfully destroyed.'
     end
 
     private
-    # Use callbacks to share common setup or constraints between actions.
-      def set_token
-        @token = Token.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def token_params
-        params.require(:token).permit(:description)
-      end
+    def set_token
+      @token = Token.find(params[:id])
+    end
 
-      def authorize!
-        return if owner_resource.public_send EasyTokens.owner_authorization_method
-        render text: 'Unauthorized', status: :unauthorized
-      end
+    def token_params
+      params.require(:token).permit(:description)
+    end
 
-      def owner_resource
-        send EasyTokens.token_owner_method
-      end
+    def authorize!
+      return if owner_resource.public_send EasyTokens.owner_authorization_method
+      render text: 'Unauthorized', status: :unauthorized
+    end
+
+    def owner_resource
+      send EasyTokens.token_owner_method
+    end
   end
 end
