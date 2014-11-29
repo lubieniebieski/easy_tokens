@@ -27,6 +27,7 @@ module EasyTokens
     # POST /tokens
     def create
       @token = Token.new(token_params)
+      @token.owner= send(EasyTokens.token_owner_method)
 
       if @token.save
         redirect_to @token, notice: 'Token was successfully created.'
