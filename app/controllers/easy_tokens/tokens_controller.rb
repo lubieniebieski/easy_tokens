@@ -2,6 +2,7 @@ require_dependency "easy_tokens/application_controller"
 
 module EasyTokens
   class TokensController < ::ApplicationController
+    before_action :authorize!
     before_action :set_token, only: [:show, :edit, :update, :destroy]
 
     layout false
@@ -52,7 +53,7 @@ module EasyTokens
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
+    # Use callbacks to share common setup or constraints between actions.
       def set_token
         @token = Token.find(params[:id])
       end
@@ -60,6 +61,15 @@ module EasyTokens
       # Only allow a trusted parameter "white list" through.
       def token_params
         params.require(:token).permit(:description)
+      end
+
+      def authorize!
+        return if owner_resource.public_send EasyTokens.owner_authorization_method
+        render text: 'Unauthorized', status: :unauthorized
+      end
+
+      def owner_resource
+        send EasyTokens.token_owner_method
       end
   end
 end
