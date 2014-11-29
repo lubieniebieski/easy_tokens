@@ -1,8 +1,10 @@
 require_dependency "easy_tokens/application_controller"
 
 module EasyTokens
-  class TokensController < ApplicationController
+  class TokensController < ::ApplicationController
     before_action :set_token, only: [:show, :edit, :update, :destroy]
+
+    layout false
 
     # GET /tokens
     def index
