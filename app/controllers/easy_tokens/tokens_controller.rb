@@ -58,7 +58,7 @@ module EasyTokens
 
       # Only allow a trusted parameter "white list" through.
       def token_params
-        params.require(:token).permit(:value, :description, :owner_id, :deactivated_at)
+        params.require(:token).permit(:description)
       end
   end
 end
