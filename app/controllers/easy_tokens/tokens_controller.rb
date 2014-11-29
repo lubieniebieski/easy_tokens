@@ -56,7 +56,7 @@ module EasyTokens
     end
 
     def owner_resource
-      send EasyTokens.token_owner_method
+      @owner_resource ||= send EasyTokens.token_owner_method
     end
   end
 end
