@@ -40,11 +40,6 @@ module EasyTokens
       end
     end
 
-    def destroy
-      @token.destroy
-      redirect_to tokens_url, notice: 'Token was successfully destroyed.'
-    end
-
     private
 
     def set_token
