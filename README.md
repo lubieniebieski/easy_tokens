@@ -1,5 +1,6 @@
 # EasyTokens
-[![](https://img.shields.io/gem/v/easy_tokens.svg)](http://rubygems.org/gems/easy_tokens)
+[![](https://img.shields.io/gem/v/easy_tokens.svg?style=flat-square)](http://rubygems.org/gems/easy_tokens)
+[![](http://img.shields.io/gemnasium/lubieniebieski/easy_tokens.svg?style=flat-square)](https://gemnasium.com/lubieniebieski/easy_tokens)
 
 ## General info
 
