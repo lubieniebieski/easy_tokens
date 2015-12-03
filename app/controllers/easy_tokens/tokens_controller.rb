@@ -5,7 +5,7 @@ module EasyTokens
     before_action :authorize!
     before_action :set_token, only: [:show, :edit, :update, :destroy]
 
-    layout false
+    layout 'easy_tokens/application'
 
     def index
       @tokens = Token.all

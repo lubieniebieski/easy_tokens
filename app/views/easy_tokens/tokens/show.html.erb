@@ -1,24 +1,31 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div class="notice-flash">
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Value:</strong>
-  <%= @token.value %>
-</p>
+<table class="table table__show-page">
+  <tbody class="table__body">
+    <tr>
+      <th>Value</th>
+      <td><%= @token.value %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @token.description %></td>
+    </tr>
+    <tr>
+      <th>Owner</th>
+      <td><%= @token.owner %></td>
+    </tr>
+    <tr>
+      <th>Deactivated at</th>
+      <td><%= @token.deactivated_at %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @token.description %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @token.owner %>
-</p>
-
-<p>
-  <strong>Deactivated at:</strong>
-  <%= @token.deactivated_at %>
-</p>
-
-<%= link_to 'Edit', edit_token_path(@token) %> |
-<%= link_to 'Back', tokens_path %>
+<div class="button-group">
+  <%= link_to 'Edit', edit_token_path(@token), class: "button button--warning" %>
+  <%= link_to 'Back', tokens_path, class: "button" %>
+</div>
