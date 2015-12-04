@@ -21,6 +21,7 @@
         <td>
           <%= link_to 'Show', token, class: "button button--secondary button--small" %>
           <%= link_to 'Edit', edit_token_path(token), class: "button button--warning button--small" %>
+          <%= link_to 'Deactivate', token_deactivate_token_path(token), class: "button button--error button--small" %>
         </td>
       </tr>
     <% end %>
