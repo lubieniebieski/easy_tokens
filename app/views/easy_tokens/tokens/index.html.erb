@@ -20,7 +20,7 @@
   <tbody class="table__body">
     <% @tokens.each do |token| %>
       <tr>
-        <td><%= token.value %></td>
+        <td><pre><%= token.value %></pre></td>
         <td><%= token.description %></td>
         <td><%= token.owner %></td>
         <td><%= token.deactivated_at %></td>
