@@ -1,3 +1,9 @@
+<% if notice.present? %>
+  <div class="notice-flash">
+    <%= notice %>
+  </div>
+<% end %>
+
 <h1>Listing tokens</h1>
 
 <table class="table">
@@ -19,7 +25,6 @@
         <td><%= token.owner %></td>
         <td><%= token.deactivated_at %></td>
         <td>
-          <%= link_to 'Show', token, class: "button button--secondary button--small" %>
           <%= link_to 'Edit', edit_token_path(token), class: "button button--warning button--small" %>
           <%= link_to 'Deactivate', token_deactivate_token_path(token), class: "button button--error button--small" %>
         </td>

@@ -1,12 +1,9 @@
 <%= form_for @token, html: { class: "form" } do |f| %>
   <%= f.label :description %>
   <%= f.text_field :description %>
-  
+
   <div class="button-group">
     <%= f.submit 'Save', class: "button button--success" %>
-    <% if @token.persisted? %>
-      <%= link_to 'Show', @token, class: "button button--secondary" %>
-    <% end %>
     <%= link_to 'Back', tokens_path, class: "button" %>
   </div>
 <% end %>
