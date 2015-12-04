@@ -42,7 +42,7 @@ module EasyTokens
 
     def deactivate_token
       @token = Token.find(params[:token_id])
-      @token.deactivated_at = Time.now
+      @token.deactivated_at = Time.zone.now
       @token.save
       redirect_to tokens_path
     end
