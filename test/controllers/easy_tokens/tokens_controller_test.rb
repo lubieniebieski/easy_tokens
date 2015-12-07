@@ -32,12 +32,7 @@ module EasyTokens
         post :create, token: { deactivated_at: @token.deactivated_at, description: @token.description, owner_id: @token.owner_id, value: @token.value }
       end
 
-      assert_redirected_to token_path(assigns(:token))
-    end
-
-    test "should show token" do
-      get :show, id: @token
-      assert_response :success
+      assert_redirected_to tokens_path
     end
 
     test "should get edit" do
@@ -47,7 +42,7 @@ module EasyTokens
 
     test "should update token" do
       patch :update, id: @token, token: { deactivated_at: @token.deactivated_at, description: @token.description, owner_id: @token.owner_id, value: @token.value }
-      assert_redirected_to token_path(assigns(:token))
+      assert_redirected_to tokens_path
     end
   end
 end
