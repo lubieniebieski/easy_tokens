@@ -44,5 +44,11 @@ module EasyTokens
       patch :update, id: @token, token: { deactivated_at: @token.deactivated_at, description: @token.description, owner_id: @token.owner_id, value: @token.value }
       assert_redirected_to tokens_path
     end
+
+    test "should deactivate token" do
+      get :deactivate_token, token_id: @token
+      assert_not_nil @token.reload.deactivated_at
+      assert_redirected_to tokens_path
+    end
   end
 end
