@@ -16,7 +16,6 @@ end
 
 class ActiveSupport::TestCase
   fixtures :all
-
 end
 
 module EasyTokens
