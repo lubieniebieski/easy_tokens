@@ -1,25 +1,33 @@
+<% if notice.present? %>
+  <div class="notice-flash">
+    <%= notice %>
+  </div>
+<% end %>
+
 <h1>Listing tokens</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="table__header">
     <tr>
       <th>Value</th>
       <th>Description</th>
       <th>Owner</th>
       <th>Deactivated at</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="table__body">
     <% @tokens.each do |token| %>
       <tr>
-        <td><%= token.value %></td>
+        <td><pre><%= token.value %></pre></td>
         <td><%= token.description %></td>
         <td><%= token.owner %></td>
         <td><%= token.deactivated_at %></td>
-        <td><%= link_to 'Show', token %></td>
-        <td><%= link_to 'Edit', edit_token_path(token) %></td>
+        <td>
+          <%= link_to 'Edit', edit_token_path(token), class: "button button--warning button--small" %>
+          <%= link_to 'Deactivate', token_deactivate_token_path(token), class: "button button--error button--small" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Token', new_token_path %>
+<%= link_to 'New Token', new_token_path, class: "button button--primary" %>

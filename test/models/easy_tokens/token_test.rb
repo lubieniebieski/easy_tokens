@@ -6,8 +6,5 @@ module EasyTokens
       token = Token.new
       assert_not token.value.nil?
     end
-    # test "the truth" do
-    #   assert true
-    # end
   end
 end

@@ -3,15 +3,12 @@ require_dependency 'easy_tokens/application_controller'
 module EasyTokens
   class TokensController < ::ApplicationController
     before_action :authorize!
-    before_action :set_token, only: [:show, :edit, :update, :destroy]
+    before_action :set_token, only: [:edit, :update, :destroy]
 
-    layout false
+    layout 'easy_tokens/application'
 
     def index
       @tokens = Token.all
-    end
-
-    def show
     end
 
     def new
@@ -26,7 +23,7 @@ module EasyTokens
       @token.owner_id = owner_resource.id
 
       if @token.save
-        redirect_to @token, notice: 'Token was successfully created.'
+        redirect_to tokens_path, notice: 'Token was successfully created.'
       else
         render :new
       end
@@ -34,10 +31,17 @@ module EasyTokens
 
     def update
       if @token.update(token_params)
-        redirect_to @token, notice: 'Token was successfully updated.'
+        redirect_to tokens_path, notice: 'Token was successfully updated.'
       else
         render :edit
       end
+    end
+
+    def deactivate_token
+      @token = Token.find(params[:token_id])
+      @token.touch(:deactivated_at)
+      @token.save
+      redirect_to tokens_path
     end
 
     private

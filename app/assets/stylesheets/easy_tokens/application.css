@@ -1,0 +1,157 @@
+body {
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-group {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
+  padding: .5em 1em;
+  border: 1px solid #aaaaaa;
+  background-color: #e6e6e6;
+  color: #333333;
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+.button:hover {
+  background-color: #cccccc;
+}
+
+.button--primary {
+  background-color: #0078e7;
+  color: #fff;
+}
+
+.button--primary:hover {
+  background-color: #005db3;
+}
+
+.button--secondary {
+  background-color: #42b8dd;
+  color: #fff;
+}
+
+.button--secondary:hover {
+  background-color: #24a0c7;
+}
+
+.button--success {
+  background-color: #1cb841;
+  color: #fff;
+}
+
+.button--success:hover {
+  background-color: #158930;
+}
+
+.button--error {
+  background-color: #ca3c3c;
+  color: #fff;
+}
+
+.button--error:hover {
+  background-color: #a42d2d;
+}
+
+.button--warning {
+  background-color: #df7514;
+  color: #fff;
+}
+
+.button--warning:hover {
+  background-color: #ad5b10;
+}
+
+.button--warning--small {
+  font-size: 80%;
+}
+
+.notice-flash {
+  display: inline-block;
+  background-color: #b1e2f1;
+  color: #333333;
+  border: 2px solid #24a0c7;
+  border-radius: 4px;
+  vertical-align: middle;
+  padding: 5px 25px;
+}
+
+.form input {
+  font: inherit;
+}
+
+.form input[type=text] {
+  padding: .5em .6em;
+  display: inline-block;
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.form label {
+  margin: .5em 0 .2em;
+  font-weight: bold;
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #cbcbcb;
+}
+
+.table__header {
+  background-color: #e0e0e0;
+  vertical-align: bottom;
+}
+
+.table__header th {
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  border-left: 1px solid #cbcbcb;
+  border-width: 0 0 0 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: .5em 1em;
+}
+
+.table__body td {
+  border-left: 1px solid #cbcbcb;
+  border-width: 0 0 0 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: .5em 1em;
+}
+
+.table__body td:first-child {
+  border-left-width: 0;
+}
+
+.table__body tr:nth-child(even) {
+  background-color: #ececec;
+}
