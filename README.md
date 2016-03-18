@@ -30,6 +30,7 @@ order to get it in the following way:
 ```
 http://myapp.com/my_resources?token=generated_token
 ```
+#### Rails API
 
 All you need to verify your controller resources is:
 
@@ -41,6 +42,57 @@ check_token_on :foo, :bar, :baz
 1. Token is validated against database
 1. If token is valid then the requested resource is returned, otherwise it
    return `400` (no token) or `401` (invalid token) response
+
+#### Grape API
+
+You need to include EasyTokens helper to your resource class:
+
+```ruby
+class MyAPI < Grape::API
+   ...
+   helpers EasyTokens::Grape
+   ...
+end
+```
+
+If you have multiple helper files or you define helpers in resource file, you must do it in that way:
+
+```ruby
+# Correct way
+class MyAPI < Grape::API
+   ...
+   helpers do 
+      include EasyTokens::Grape
+      include MyOtherHelper
+      
+      def my_local_helper
+         true
+      end
+   end
+   ...
+end
+
+# Wrong way
+class MyAPI < Grape::API
+   ...
+   helpers EasyTokens::Grape # It will be overwritten
+   helpers MyOtherHelper # It will be overwritten
+      
+   helpers do
+      def my_local_helper
+         true
+      end
+   end
+end
+```
+
+Now just call appropriate function in 'before' block:
+
+```ruby
+before do
+   check_api_token(params[:token])
+end
+```
 
 ## Configuration
 
