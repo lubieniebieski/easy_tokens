@@ -45,6 +45,8 @@ check_token_on :foo, :bar, :baz
 
 #### Grape API
 
+*EasyTokens heavily depends on Rails (Admin panel, Token model) so you can't use it for Grape app mounted on Rack.*
+
 You need to include EasyTokens helper to your resource class:
 
 ```ruby
