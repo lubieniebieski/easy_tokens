@@ -1,4 +1,5 @@
 require_relative 'authorization'
+require_relative 'grape'
 
 module EasyTokens
   class Engine < ::Rails::Engine
